@@ -76,7 +76,7 @@ app.post('/login', (req, res) => {
 
 app.post('/questions', async (req, res) => {
     try {
-        const { key, publish, thequestion, title } = req.body;
+        const { key, publish, thequestion, title } = await req.body;
         const q = new Question({ key, publish, thequestion, title });
         await q.save();
         res.status(201).json(q);
